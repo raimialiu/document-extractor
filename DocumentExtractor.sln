@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentExtractor", "DocumentExtractor\DocumentExtractor.csproj", "{7FCBAE86-D841-48E3-B02B-C12C7FA3ECC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1", "v1", "{45AFDDDA-5D20-478C-B130-1AA9E0B26360}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FCBAE86-D841-48E3-B02B-C12C7FA3ECC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FCBAE86-D841-48E3-B02B-C12C7FA3ECC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FCBAE86-D841-48E3-B02B-C12C7FA3ECC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FCBAE86-D841-48E3-B02B-C12C7FA3ECC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7FCBAE86-D841-48E3-B02B-C12C7FA3ECC7} = {45AFDDDA-5D20-478C-B130-1AA9E0B26360}
+	EndGlobalSection
+EndGlobal
