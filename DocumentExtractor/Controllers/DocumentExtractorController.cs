@@ -94,4 +94,24 @@ public class DocumentExtractorController: ControllerBase
         }
        
     }
+    
+    
+    
+    [HttpPost]
+    [Route("train-documents")]
+    public async Task<IActionResult> TrainDocuments([FromForm] TrainModelRequest request)
+    {
+        try
+        {
+            //  _logger.Log(LogLevel.Information, message:"Begin execution of DocumentLayout Extraction");
+            
+            return Ok(await _docService.TrainDocumentsFromFolder(request.FolderPath, request.ModelId));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, "!!oops, you just hit a snag");
+        }
+       
+    }
 }

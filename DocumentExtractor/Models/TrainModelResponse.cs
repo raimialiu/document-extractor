@@ -31,4 +31,6 @@ public class TrainModelRequest
     public string FileUri { get; set; }
     public string ModelId { get; set; }
     public IFormFile documentFile { get; set; }
+    public string FolderPath { get; set; }
+    public Stream? FileStream { get; set; }
 }

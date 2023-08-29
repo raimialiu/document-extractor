@@ -18,6 +18,29 @@ public class DocumentExtractorService
     }
 
 
+    public async Task<List<object>> TrainDocumentsFromFolder(string folderPath, string modelId)
+    {
+        var files = Directory.EnumerateFiles(folderPath).ToList();
+
+        List<object> documents = new List<object>();
+        List<Task<object>> tasks = new List<Task<object>>();
+
+        files.ForEach((item) =>
+        {
+            tasks.Add(
+                TrainDocument(new TrainModelRequest()
+                {
+                    FileStream = File.OpenRead(item),
+                    ModelId = modelId
+                })
+            );
+        });
+
+        documents = (await Task.WhenAll(tasks)).ToList();
+
+        return documents;
+    }
+    
     public async Task<ExtractDocumentResponse> ExtractDataFromDocument(ExtractDocumentModel documentModel)
     {
         
@@ -191,7 +214,7 @@ public class DocumentExtractorService
         var credential = new AzureKeyCredential(_formRecognizerSettings.key);
         var client = new DocumentAnalysisClient(new Uri(_formRecognizerSettings.endpoint), credential);
 
-        using var stream = request.documentFile.OpenReadStream();
+        using var stream = request?.FileStream ?? request?.documentFile.OpenReadStream();
 
         if (!request.ModelId.StartsWith("prebuilt"))
         {
